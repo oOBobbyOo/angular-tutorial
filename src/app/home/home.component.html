@@ -1,0 +1,44 @@
+<p data-title={{title}}>
+  home works!
+</p>
+
+
+<!-- ngFor ngClass -->
+<ul>
+  <li *ngFor="let item of data; let myIndex = index; let firstRecords = first; let lastRecords = last; let evenRecords = even; let oddRecords = odd;" [ngClass]="{odd: oddRecords,even: evenRecords, first: firstRecords, last: lastRecords}">
+    {{myIndex}} : {{item}} even: {{evenRecords}} odd: {{ oddRecords }}
+  </li>
+</ul>
+
+<hr>
+
+<!-- ngIF -->
+<div *ngIf="2<1; else testContent">
+  yes
+</div>
+
+<ng-template #testContent>
+  <span>
+    No
+  </span>
+</ng-template>
+
+<hr>
+
+
+<!-- pipe -->
+<div>
+  "this is my name"
+</div>
+
+<p>
+  {{ "this is my name" | reverse:false:"bobby":"henry"}}
+</p>
+
+
+<hr>
+
+<!--  -->
+<div appColor>
+  color test
+</div>
