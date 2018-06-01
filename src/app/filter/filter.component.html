@@ -1,0 +1,62 @@
+<div class="component-page-header">
+  <h1>
+    {{title}}
+  </h1>
+</div>
+
+<div class="container">
+  <mat-card>
+    <mat-card-title>filter: number</mat-card-title>
+    {{8.567 | number:'1.1-2'}}
+    <br> {{8.567 | number:'2.2-3'}}
+    <br> {{8.567 | number:'1.4-4'}}
+    <br>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>filter: uppercase</mat-card-title>
+    <mat-card-content>{{title | uppercase}}</mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>filter: lowercase</mat-card-title>
+    <mat-card-content>{{title | lowercase}}</mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>filter: slice</mat-card-title>
+    <mat-card-content>
+      {{title | slice:'2'}}
+      <br> {{title | slice:'2':'4'}}
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>filter: json</mat-card-title>
+    <mat-card-content>
+      {{title | json}}
+      <br> {{title | json: 4}}
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>filter: currency</mat-card-title>
+    {{8.99 | currency:'EUR'}}
+    <br> {{8.99 | currency:'USD$'}}
+    <br> {{8.99 | currency:'USD$':0}}
+
+    <p>{{0.259 | currency}}</p>
+    <p>{{0.259 | currency:'CAD'}}</p>
+    <p>{{0.259 | currency:'CAD':'code'}}</p>
+    <p>{{1.3495 | currency:'CAD':'symbol':'4.2-2'}}</p>
+    <p>{{1.3495 | currency:'CAD':'symbol-narrow':'4.2-2'}}</p>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>filter: date</mat-card-title>
+    {{date}}
+    <br> {{date | date: 'fullDate'}}
+    <br> {{date | date: 'shortDate'}}
+    <br> {{date | date: 'shortTime'}}
+  </mat-card>
+</div>

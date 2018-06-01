@@ -1,0 +1,76 @@
+<div class="component-page-header">
+  <h1>
+    form works!
+  </h1>
+</div>
+
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="handelSubmit(form.value)">
+    <div class="example-container">
+      <!-- firstname -->
+      <mat-form-field>
+        <input matInput #firstnameRef maxlength="10" placeholder="Enter your Firstname" name="firstname" formControlName="firstname">
+        <mat-error *ngIf="form.controls['firstname'].hasError('minlength')">
+          Please enter atleast 4 characters
+        </mat-error>
+        <mat-error *ngIf="form.controls['firstname'].hasError('maxlength')">
+          Please enter exeed 16 characters
+        </mat-error>
+        <mat-error *ngIf="form.controls['firstname'].hasError('required')">
+          Firstname is
+          <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <!-- lastname -->
+      <mat-form-field>
+        <input matInput #lastnameRef maxlength="10" placeholder="Enter your Lastname" name="lastname" formControlName="lastname">
+        <mat-error *ngIf="form.controls['lastname'].hasError('minlength')">
+          Please enter atleast 4 characters
+        </mat-error>
+        <mat-error *ngIf="form.controls['lastname'].hasError('maxlength')">
+          Please enter exeed 16 characters
+        </mat-error>
+        <mat-error *ngIf="form.controls['lastname'].hasError('required')">
+          Lastname is
+          <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <!-- email -->
+      <mat-form-field>
+        <input matInput placeholder="Enter your email" formControlName="email">
+        <mat-error *ngIf="form.controls['email'].hasError('pattern')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="form.controls['email'].hasError('required')">
+          Email is
+          <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <!-- password -->
+      <mat-form-field>
+        <input matInput placeholder="Enter your password" formControlName="password" [type]="pwdhide ? 'password' : 'text'">
+        <mat-icon matSuffix (click)="pwdhide = !pwdhide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        <mat-error *ngIf="form.controls['password'].hasError('pattern')">
+          Password 6 to 20 characters
+        </mat-error>
+        <mat-error *ngIf="form.controls['password'].hasError('required')">
+          Password code is
+          <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <!-- code -->
+      <mat-form-field>
+        <input matInput placeholder="Enter your code" formControlName="code">
+        <mat-error *ngIf="form.controls['code'].hasError('pattern')">
+          Please enter 4 digits
+        </mat-error>
+        <mat-error *ngIf="form.controls['code'].hasError('required')">
+          Verification code is
+          <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <!-- submit -->
+      <button mat-raised-button [disabled]="!form.valid">Submit</button>
+    </div>
+  </form>
+</div>

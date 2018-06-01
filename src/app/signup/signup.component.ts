@@ -3,12 +3,11 @@ import { AuthService } from "../services/auth.service";
 import { Router } from "@angular/router";
 
 @Component({
-  selector: "app-login",
-  templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.css"]
+  selector: "app-signup",
+  templateUrl: "./signup.component.html",
+  styleUrls: ["./signup.component.css"]
 })
-export class LoginComponent implements OnInit {
-  userJWT: any;
+export class SignupComponent implements OnInit {
   constructor(private _auth: AuthService, private router: Router) {}
 
   ngOnInit() {}
@@ -21,17 +20,13 @@ export class LoginComponent implements OnInit {
 
     console.log(username, password);
 
-    this._auth.loginIn(username, password).subscribe(data => {
+    this._auth.signup(username, password).subscribe(data => {
       console.log(data);
-      console.log(data["_body"]);
 
-      // login success
+      // signup success
       if (data.status === 200) {
-        console.log("login success!");
-        this.userJWT = JSON.parse(data["_body"]);
-        localStorage.setItem("userJWT", this.userJWT.token);
-        this._auth.setLoggedIn(true);
-        this.router.navigate(["admin"], { queryParams: { user: username } });
+        console.log("signup success!");
+        this.router.navigate(["login"]);
       }
     });
   }

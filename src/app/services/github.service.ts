@@ -42,12 +42,4 @@ export class GithubService {
   updateGithubUser(username: any) {
     this.username = username;
   }
-
-  getAlldata() {
-    const url = "https://jsonplaceholder.typicode.com/posts";
-    return this._http.get(url).subscribe(data => {
-      console.log("jsonplaceholder:");
-      console.log(data.json());
-    });
-  }
 }

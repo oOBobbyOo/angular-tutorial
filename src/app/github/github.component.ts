@@ -23,13 +23,12 @@ export class GithubComponent implements OnInit {
       console.log("respos:");
       console.log(this.respos);
     });
-
-    this._githubService.getAlldata();
   }
 
   ngOnInit() {}
 
   search() {
+    console.log("search:");
     this._githubService.updateGithubUser(this.username);
 
     this._githubService.getGithubUser().subscribe(user => {

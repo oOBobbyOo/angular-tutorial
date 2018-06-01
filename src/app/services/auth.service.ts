@@ -16,6 +16,10 @@ export class AuthService {
     return this.isLoggedInStatus;
   }
 
+  signup(username, password) {
+    return this._http.post("/api/register", { username, password });
+  }
+
   loginIn(username, password) {
     return this._http.post("/api/login", { username, password });
   }

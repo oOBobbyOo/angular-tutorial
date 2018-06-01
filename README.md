@@ -36,7 +36,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 //proxyconfig.json
 {
   "/api": {
-    "target": "http://localhost:4200",
+    "target": "http://localhost:3000/",
     "secure": false,
     "changeOrigin": true,
     "pathRewrite": {
